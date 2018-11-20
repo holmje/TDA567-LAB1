@@ -22,6 +22,7 @@ public class SectionTest {
 		assertArrayEquals(expected.toArray(), set.toArray());
 	}
 	
+	
 	@Test
 	public void test_RemoveDoNotRemoveRandom_ASC() {
 		Set removeSet = new Set();
@@ -43,5 +44,5 @@ public class SectionTest {
 		set.section(removeSet);		
 		assertArrayEquals(expected.toArray(), set.toArray());
 	}
-
+	
 }

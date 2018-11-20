@@ -25,9 +25,9 @@ With the specification:
 
     Partition #1: No setReqiuiredNumber
         addWorkerWhenNoneIsNeeded_addWorkingPeriod_part1:
-            input: "jesper[0], 3, 6", expected: DoNotAddWorker
+            input: "jesper[0], 3, 6", expected: DoNotAddWorker and returnFalse
 
-    Partition #2: No serRequiredNumber
+    Partition #2: No setRequiredNumber
         addWorkerWhenNoneIsNeeded_addWorkingPeriod_part2:
             input: "jesper[0], 3, 6", expected: ReturnFalse
 
@@ -114,3 +114,59 @@ With the specification:
             input: "jesper[0], 3, 6"
                    "jesper[0], 3, 6"
             expected: returnFalse
+
+    Border Cases:
+
+    Found bugs: partition #10 returns true when it should return false.
+
+
+Given the method:
+
+    public String[] workingEmployees(int starttime, int endtime);
+
+With the specification:
+
+    requires:
+      starttime >= 0 and endtime < size
+    ensures:
+      if starttime <= endtime then
+        returns an array with distinct strings -- a string appears in the return array if and only if
+        it appears in the workingEmployees of at least one hour in the interval starttime to endtime
+      otherwise
+        returns an empty array
+      and in either case the schedule is unchanged
+
+    Input space: starttime >= 0 and endtime < size
+
+    partition #1: starttime < endtime and setRequiredNumber(1, 0, 23)
+        startTimeLessThanEndTime_workingEmployees_part1:
+            input: "'Jesper', 0, 23", expected: distinct_array = {"Jesper"}
+
+    partition #2: starttime = endtime and setRequiredNumber(1, 6, 6)
+        starttimeEqualsEndtime_workingEmployees_part2:
+            input: "'Jesper', 6, 6", expected: distinct_array = {"Jesper"}
+
+    partition #3: starttime > endtime and setRequiredNumber(1, 0, 23)
+        starttimeGreaterThanEndtime_workingEmployees_part3:
+            input: "'Jesper', 7, 2", expected: emptyArray
+
+    partition #4: setrequiredNumber(4, 0, 23)
+        allWorkersAtDifferentTimes_workingEmployees_part4:
+            input: "'Jesper',2,4"
+                   "'Johan',6,8"
+                   "'Kasper',10,12"
+                   "'Dan',14,18"
+            expected: Distinct_array = {"Jesper","Johan","Kasper","Dan"}
+
+    partition #5: setrequiredNumber(4, 0, 23)
+        allWorkersAtSameTimes_workingEmployees_part5:
+            input: "'Jesper',6,14"
+                   "'Johan',6,14"
+                   "'Kasper',6,14"
+                   "'Dan',6,14"
+            expected: Distinct_array = {"Jesper","Johan","Kasper","Dan"}
+
+    Border Cases:
+
+    Found bugs: partition #4 and #5 have a bug where they don't accept multiple workers on times other
+    ranges than 0 to 23.

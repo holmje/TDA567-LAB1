@@ -34,7 +34,7 @@ public class WorkingEmployeesTests {
 	
 	//Should be added due to StartTime < EndTime
 	@Test
-	public void StartTimeLessThanEndTime_ReturnDistinctArray(){		
+	public void StartTimeLessThanEndTime_ReturnDistinctArray(){
 		schedule.setRequiredNumber(1, 0, 23);
 		schedule.addWorkingPeriod("Jesper",0,23);
 		assertArrayEquals(distinct_array, schedule.workingEmployees(0,6));
@@ -77,10 +77,10 @@ public class WorkingEmployeesTests {
 	@Test
 	public void AllWorkersAtSameTimes_ReturnDistinctArray(){		
 		schedule.setRequiredNumber(4, 0, 23);
-		schedule.addWorkingPeriod("Jesper",0,23);
-		schedule.addWorkingPeriod("Johan",0,23);
-		schedule.addWorkingPeriod("Kasper",0,23);
-		schedule.addWorkingPeriod("Dan",0,23);
+		schedule.addWorkingPeriod("Jesper",6,14);
+		schedule.addWorkingPeriod("Johan",6,14);
+		schedule.addWorkingPeriod("Kasper",6,14);
+		schedule.addWorkingPeriod("Dan",6,14);
 		
 		String [] expected = new String [] {"Jesper","Johan","Kasper","Dan"};
 		assertArrayEquals(expected, schedule.workingEmployees(0,23));

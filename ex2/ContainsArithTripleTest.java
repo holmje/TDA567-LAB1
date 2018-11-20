@@ -21,12 +21,8 @@ public class ContainsArithTripleTest {
 	}
 	
 	@Test
-	public void test_ContainsArithTripleRandomOrder() {
-		set.insert(1);
-		set.insert(33);
-		set.insert(2);
-		set.insert(3);
-		assertTrue(set.containsArithTriple());
+	public void test_NoValue() {
+		assertFalse(set.containsArithTriple());
 	}
 	
 	@Test
@@ -36,4 +32,5 @@ public class ContainsArithTripleTest {
 		set.insert(56);
 		assertFalse(set.containsArithTriple());
 	}
+	
 }

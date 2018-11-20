@@ -13,6 +13,10 @@ public class MemberTest {
 	   set = new Set();
 	}
 	
+	@Test
+	public void test_EmptyArray_ReturnFalse() {
+		assertFalse(set.member(1));
+	}
 	
 	@Test
 	public void test_MemberGreaterThanMembers_ReturnFalse() {
@@ -28,7 +32,7 @@ public class MemberTest {
 	}
 	
 	@Test
-	public void test_DoesNotContainsValueGraterOrEqualsToX_ReturnFalse() {
+	public void test_DoesNotContainValueGraterOrEqualsToX_ReturnFalse() {
 		set.insert(2);
 		set.insert(3);
 		assertFalse(set.member(1));

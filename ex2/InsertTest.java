@@ -39,7 +39,7 @@ public class InsertTest {
 
 	
 	@Test
-	public void test_InsertDec() {
+	public void test_InsertDesc() {
 		int [] expected  = new int [] {1,2,3};
 		set.insert(3);
 		set.insert(2);

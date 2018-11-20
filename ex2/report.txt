@@ -1,0 +1,53 @@
+
+Given method:
+
+    public void insert(int x);
+
+    Statement coverage is obtained by following test cases:
+        test_InsertAsc()
+        test_InsertDesc()
+        test_AddToSet()
+
+    Branch coverage is obtained by following test case:
+        test_AlreadyInSet()
+
+Given method:
+
+    public void member(int x);
+
+    Statement coverage is obtained by following test cases:
+        test_EmptyArray_ReturnFalse()
+        test_MembersContainsMember_ReturnTrue()
+        test_DoesNotContainsValueGraterOrEqualsToX_ReturnFalse()
+
+    Branch coverage is obtained by following test cases:
+        test_MembersContainsMember_ReturnTrue()
+        test_MemberGreaterThanMembers_ReturnFalse()
+        test_DoesNotContainsValueGraterOrEqualsToX_ReturnFalse()
+
+Given method:
+
+    public void section(Set s);
+
+    Statement coverage is obtained by following test cases:
+        test_RemoveItemsFromSet()
+        test_RemoveDoNotRemoveRandom_ASC()
+        test_RemoveDoNotRemoveRandom_DESC()
+
+    Branch coverage is obtained by following test cases:
+        test_RemoveItemsFromSet()
+        test_RemoveDoNotRemoveRandom_ASC()
+        test_RemoveDoNotRemoveRandom_DESC()
+
+Given method:
+
+    public void containsArithTriple()
+
+    Statement coverage is obtained by following test cases:
+        test_ContainsArithTriple()
+        test_DoNotContainArithTriple()
+
+    Branch coverage is obtained by following test case:
+        test_NoValue()
+        test_ContainsArithTriple()
+        test_DoNotContainArithTriple()

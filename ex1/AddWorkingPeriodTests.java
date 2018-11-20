@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
  *           for i between starttime and endtime, workingEmployees contain a string equal to employee and
  *           the rest of the schedule is unchanged
  */
-public class AddWorkingPeriodTest {
+public class AddWorkingPeriodTests {
 
 
     WorkSchedule ws;

@@ -17,7 +17,7 @@ requires:
 	  and in either case the schedule is unchanged
 	  */
 
-public class WorkingEmployeesTest {
+public class WorkingEmployeesTests {
 
 	private int work_hours;
 	private WorkSchedule schedule;

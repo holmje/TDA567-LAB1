@@ -15,17 +15,15 @@ public class Set {
     return ia;
   }
   
-  //Break was the errors
+  //Break was the error
   public void insert(int x) {
     for (int i = 0; i < a.size(); i++) {
       if (a.get(i) > x) {
-        a.add(i, x);
-        return;	
-        	//break;
+    	  a.add(i, x);
+    	  return;	
       } else {
         if (a.get(i) == x) {
-          return;
-        	//break;
+        	return;
         }
       }
     }
@@ -63,10 +61,12 @@ public class Set {
 
   public boolean containsArithTriple() {
     for (int i = 0; i < a.size(); i++) {
-      for (int j = 0; j <= i; j++) {
-        if (member(2 * a.get(i) - a.get(j))) return true;
+      for (int j = 0; j < i; j++) {			
+        if (member(2 * a.get(i) - a.get(j))) 
+        	return true;
       }
     }
     return false;
-  }    
+  }   
+  
 }

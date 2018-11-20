@@ -14,19 +14,6 @@ public class MemberTest {
 	}
 	
 	
-	/*  public boolean member(int x) {
-    for (int i = 0; i < a.size(); i++) {
-      if (a.get(i) > x) {					//IF array contains a value greater than x return false
-        return false;		
-      } else {
-        if (a.get(i) == x) {				//IF array contains value of x return true;
-          return true;
-        }
-      }
-    }
-    return false;							//IF array does not contain a value greater or equals to x return false
-  }*/
-	
 	@Test
 	public void test_MemberGreaterThanMembers_ReturnFalse() {
 		set.insert(2);

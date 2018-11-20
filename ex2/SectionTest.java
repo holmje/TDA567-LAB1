@@ -11,26 +11,37 @@ public class SectionTest {
 	public void init(){
 	   set = new Set();
 	}
-	/* Removes from this set any element that is equal to an element in s
-	  public void section(Set s) {
-		    for (int i = 0, j = 0; i < a.size() && j < s.a.size();) {
-		      if (a.get(i).equals(s.a.get(j))) {
-		        a.remove(i);
-		        i++;
-		        j++;
-		      } else {
-		        if (a.get(i) < s.a.get(j)) {
-		          i++;
-		        } else {
-		          j++;
-		        }
-		      }
-		    }
-		  }*/
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void test_RemoveItemsFromSet() {
+		Set removeSet = new Set();
+		Set expected = new Set();
+		removeSet.insert(5);
+		set.insert(5);
+		set.section(removeSet);		
+		assertArrayEquals(expected.toArray(), set.toArray());
+	}
+	
+	@Test
+	public void test_RemoveDoNotRemoveRandom_ASC() {
+		Set removeSet = new Set();
+		Set expected = new Set();
+		removeSet.insert(3);
+		set.insert(5);
+		expected.insert(5);
+		set.section(removeSet);		
+		assertArrayEquals(expected.toArray(), set.toArray());
+	}
+	
+	@Test
+	public void test_RemoveDoNotRemoveRandom_DESC() {
+		Set removeSet = new Set();
+		Set expected = new Set();
+		removeSet.insert(5);
+		set.insert(3);
+		expected.insert(3);
+		set.section(removeSet);		
+		assertArrayEquals(expected.toArray(), set.toArray());
 	}
 
 }

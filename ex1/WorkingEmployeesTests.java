@@ -72,8 +72,8 @@ public class WorkingEmployeesTests {
 		assertArrayEquals(expected, schedule.workingEmployees(0,23));
 
 	}
-	
-	// Workers are successfully added, same work hours
+
+	//BUG: No workers are added due to different work hours
 	@Test
 	public void AllWorkersAtSameTimes_ReturnDistinctArray(){		
 		schedule.setRequiredNumber(4, 0, 23);
@@ -86,6 +86,5 @@ public class WorkingEmployeesTests {
 		assertArrayEquals(expected, schedule.workingEmployees(0,23));
 
 	}
-	
-	
+
 }

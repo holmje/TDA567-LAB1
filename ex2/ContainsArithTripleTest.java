@@ -31,9 +31,9 @@ public class ContainsArithTripleTest {
 	
 	@Test
 	public void test_DoNotContainArithTriple() {
-		set.insert(100);
+		set.insert(89);
 		set.insert(44);
-		set.insert(2);
+		set.insert(56);
 		assertFalse(set.containsArithTriple());
 	}
 }

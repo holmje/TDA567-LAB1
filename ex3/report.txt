@@ -1,0 +1,26 @@
+This report regards the bundled BinarySearch.java, copied from the lab assignment with identical row alignment.
+
+1. Check requirements of the function
+2. Run the default program, with value 4: Works
+3. Run the default program, with values {1,2,3,5,6,7,8} doesn't work wich it should
+4. Run the default program, with values outside of the array, like 9 and 10 so on. Expecting failure: and it fails.
+5. Start debugging with the value = 6
+6. Breakpoint at row 18, to confirm that the loop conditions is properly defined: They are
+7. Breakpoint at row 20, to confirm that we donät go into the if statement: correct, it doesn't
+8. Breakpoint at row 22, it goes in to the if statement as it should by looking at the condition.
+9. Breakpoint at row 23, we find that the upper bounds are too small, BUG FOUND!!
+10. Bug is solved by fliping the < to > in the if statement on row 22.
+
+We then tested the sulotion by running a for loop with the bounds of the array to see that it now works for every
+number in the original array. Then inside we do the same if statement and calls as before. 
+Code we tested with looks like the following:
+
+int[] array = {1, 2, 3, 4, 5, 6, 7, 8};
+
+for (int i = 0, value = -1; i < array.length+4; i++, value++){
+  if (search(array, value))
+    System.out.println("The value " + value + " is in the array.");
+  else {
+    System.out.println("The value " + value + " is not in the array.");
+  }
+}

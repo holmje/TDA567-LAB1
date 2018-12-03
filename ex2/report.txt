@@ -30,12 +30,12 @@ Given method:
     public void section(Set s);
 
     Statement coverage is obtained by following test cases:
-        test_RemoveItemsFromSet()
+        test_RemoveItemFromSet() OR test_RemoveItemsFromSet()
         test_RemoveDoNotRemoveRandom_ASC()
         test_RemoveDoNotRemoveRandom_DESC()
 
     Branch coverage is obtained by following test cases:
-        test_RemoveItemsFromSet()
+        test_RemoveItemFromSet() OR test_RemoveItemsFromSet()   
         test_RemoveDoNotRemoveRandom_ASC()
         test_RemoveDoNotRemoveRandom_DESC()
 

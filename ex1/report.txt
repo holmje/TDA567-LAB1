@@ -25,7 +25,7 @@ With the specification:
 
     Partition #1: No setReqiuiredNumber
         addWorkerWhenNoneIsNeeded_addWorkingPeriod_part1:
-            input: "jesper[0], 3, 6", expected: DoNotAddWorker and returnFalse
+            input: "jesper[0], 3, 6", expected: DoNotAddWorker
 
     Partition #2: No setRequiredNumber
         addWorkerWhenNoneIsNeeded_addWorkingPeriod_part2:

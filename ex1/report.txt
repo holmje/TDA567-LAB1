@@ -26,98 +26,62 @@ With the specification:
     Partition #1: No setReqiuiredNumber
         addWorkerWhenNoneIsNeeded_addWorkingPeriod_part1:
             input: "jesper[0], 3, 6", expected: DoNotAddWorker
+                                      expected: ReturnFalse
 
-    Partition #2: No setRequiredNumber
-        addWorkerWhenNoneIsNeeded_addWorkingPeriod_part2:
-            input: "jesper[0], 3, 6", expected: ReturnFalse
-
-    Partition #3: starttime < endtime and setRequiredNumber(1, 3, 6)
-        addWorkerOnePerson_addWorkingPeriod_part3:
+    Partition #2: starttime < endtime and setRequiredNumber(1, 3, 6)
+        addWorkerOnePerson_addWorkingPeriod_part2:
             input: "jesper[0], 2, 5", expected: addWorker
+                                      expected: returnTrue
 
-    Partition #4: starttime < endtime and setRequiredNumber(1, 3, 6)
-        addWorkerOnePerson_addWorkingPeriod_part4:
-            input: "jesper[0], 2, 5", expected: returnTrue
-
-    Partition #5: starttime < 0 and setRequiredNumber(1, 3, 6)
-        startTimeLessThanZero_addWorkingPeriod_part5:
+    Partition #3: starttime < 0 and setRequiredNumber(1, 3, 6)
+        startTimeLessThanZero_addWorkingPeriod_part3:
             input: "jesper[0], -1, 3", expected DoNotAddWorker
+                                       expected returnFalse
 
-    Partition #6: starttime < 0 and setRequiredNumber(1, 3, 6)
-        startTimeLessThanZero_addWorkingPeriod_part6:
-            input: "jesper[0], -1, 3", expected returnFalse
-
-    Partition #7: endTime >= size and setRequiredNumber(1, 3, 6)
-        endTimeIsGreaterOrEqualToSize_addWorkingPeriod_part7:
+    Partition #4: endTime >= size and setRequiredNumber(1, 3, 6)
+        endTimeIsGreaterOrEqualToSize_addWorkingPeriod_part4:
             input: "jesper[0], 6, 24", expected DoNotAddWorker
+                                       expected returnFalse
 
-    Partition #8: endTime >= size and setRequiredNumber(1, 3, 6)
-        endTimeIsGreaterOrEqualToSize_addWorkingPeriod_part8:
-            input: "jesper[0], 6, 24", expected returnFalse
-
-    Partition #9: starttime > endtime and setRequiredNumber(1, 3, 6)
-        starttimeIsGreaterThanEndTime_addWorkingPeriod_part9:
+    Partition #5: starttime > endtime and setRequiredNumber(1, 3, 6)
+        starttimeIsGreaterThanEndTime_addWorkingPeriod_part5:
             input: "jesper[0], 6, 3", expected: DoNotAddWorker
+                                      expected: returnFalse
 
-    partition #10: starttime > endtime and setRequiredNumber(1, 3, 6)
-        starttimeIsGreaterThanEndTime_addWorkingPeriod_part10:
-            input: "jesper[0], 6, 3", expected: returnFalse
-
-    partition #11: setRequiredNumber(1, 3, 6)
-        addMoreWorkersThanNeeded_addWorkingPeriod_part11:
+    partition #6: setRequiredNumber(1, 3, 6)
+        addMoreWorkersThanNeeded_addWorkingPeriod_part6:
             input: "jesper[0], 3, 6"
                    "johan[0], 3, 6"
             expected: DoNotAddSecondWorker
-
-    partition #12: setRequiredNumber(1, 3, 6)
-        addMoreWorkersThanNeeded_addWorkingPeriod_part12:
-            input: "jesper[0], 3, 6"
-                   "johan[0], 3, 6"
             expected: returnFalse
 
-    partition #13: setRequiredNumber(3, 3, 6)
-        addLessWorkersThanNeeded_addWorkingPeriod_part13:
+    partition #7: setRequiredNumber(3, 3, 6)
+        addLessWorkersThanNeeded_addWorkingPeriod_part7:
             input: "jesper[0], 3, 6"
                    "johan[0], 3, 6"
             expected: AddWorkers
-
-    partition #14: setRequiredNumber(3, 3, 6)
-        addLessWorkersThanNeeded_addWorkingPeriod_part14:
-            input: "jesper[0], 3, 6"
-                   "johan[0], 3, 6"
             expected: returnTrue
 
-    partition #15: setRequiredNumber(1, 3, 6)
-        addWorkerToLargerPeriodThanNeeded_addWorkingPeriod_part15:
+    partition #8: setRequiredNumber(1, 3, 6)
+        addWorkerToLargerPeriodThanNeeded_addWorkingPeriod_part8:
             input: "jesper[0], 1, 6", expected: DoNotAddWorker
+                                      expected: returnFalse
 
-    partition #16: setRequiredNumber(1, 3, 6)
-        addWorkerToLargerPeriodThanNeeded_addWorkingPeriod_part16:
-            input: "jesper[0], 1, 6", expected: returnFalse
-
-    partition #17: starttime = endtime and setRequiredNumber(1, 3, 3)
-        startTimeEqualToEndTime_addWorkingPeriod_part17:
+    partition #9: starttime = endtime and setRequiredNumber(1, 3, 3)
+        startTimeEqualToEndTime_addWorkingPeriod_part9:
             input: "jesper[0], 3, 3", expected addWorker
+                                      expected returnTrue
 
-    partition #18: starttime = endtime and setRequiredNumber(1, 3, 3)
-        startTimeEqualToEndTime_addWorkingPeriod_part18:
-            input: "jesper[0], 3, 3", expected returnTrue
-
-    partition #19: setRequiredNumber(1, 3, 6)
-        addSameWorkerMultipleTimes_addWorkingPeriod_part19:
+    partition #10: setRequiredNumber(1, 3, 6)
+        addSameWorkerMultipleTimes_addWorkingPeriod_part10:
             input: "jesper[0], 3, 6"
                    "jesper[0], 3, 6"
             expected: DoNotAddWorkerSecondTime
-
-    partition #20: setRequiredNumber(1, 3, 6)
-        addSameWorkerMultipleTimes_addWorkingPeriod_part19:
-            input: "jesper[0], 3, 6"
-                   "jesper[0], 3, 6"
             expected: returnFalse
 
     Border Cases:
 
-    Found bugs: partition #10 returns true when it should return false.
+    Found bugs: partition #5 returns true when it should return false.
 
 
 Given the method:
